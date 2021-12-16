@@ -16,7 +16,7 @@ use App\Http\Livewire\Usuarios\MostrarUsuario;
 use Illuminate\Support\Facades\Route;
 
         Route::get('/login',Login::class)->name('login');
-
+////
         Route::group(['middleware'=>'auth'], function () {
 
         Route::get('/animales', IndexAnimales::class)->name('animales');
