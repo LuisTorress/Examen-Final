@@ -1,9 +1,9 @@
 <div>
+    <a href="{{route('empleados.crear')}}" type="button" class="float-right mb-3 btn btn-success"><i class="fa fa-plus-circle"></i> Crear Empleado</a>
+
     <div class="table-responsive">
 
-        <a href="{{route('empleados.crear')}}" type="button" class="float-right mb-3 btn btn-success"><i class="fa fa-plus-circle"></i> Crear Empleado</a>
-
-    <table class="table">
+    <table class="table table-sm">
         <thead class="thead-dark">
           <tr>
             <th scope="col">ID</th>
@@ -39,7 +39,7 @@
                     <td>{{$empleado->ApellidoPaterno}}</td>
                     <td>{{$empleado->ApellidoMaterno}}</td>
                     <td>{{$empleado->Sexo}}</td>
-                    <td>{{$empleado->FehaDeNacimiento}}</td>
+                    <td>{{$empleado->FechaDeNacimiento}}</td>
                     <td>{{$empleado->PuestoDeTrabajo}}</td>
                     <td>{{$empleado->Curp}}</td>
                     <td>{{$empleado->Rfc}}</td>

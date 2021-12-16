@@ -1,34 +1,33 @@
 <?php
 
-//use App\Http\Controllers\AlumnoController;
-//use App\Http\Controllers\EmpresasController;
-//use App\Http\Controllers\Productos;
-//use App\Http\Controllers\usuarioController;
-use App\Http\Livewire\Empleados\IndexEmpleados;
-use App\Http\Livewire\Empleados\CreateEmpleado;
-use App\Http\Livewire\Empleados\EmpleadosDelete;
-use App\Http\Livewire\Empleados\EmpleadosEdit;
-use App\Http\Livewire\Empleados\EmpleadosMostrar;
-//use App\Http\Livewire\Productos\CreateProducto;
-//use App\Http\Livewire\Productos\IndexProductos;
-use App\Models\Empleado;
-//use App\Models\Empresas;
-//use App\Models\Producto;
+use App\Http\Livewire\Animales\AnimalesCreate;
+use App\Http\Livewire\Animales\AnimalesDelete;
+use App\Http\Livewire\Animales\AnimalesEdit;
+use App\Http\Livewire\Animales\AnimalesMostrar;
+use App\Http\Livewire\Animales\IndexAnimales;
+
+use App\Http\Livewire\Login\Login;
+
+use App\Http\Livewire\Usuarios\CreateUsuario;
+use App\Http\Livewire\Usuarios\DeleteUsuario;
+use App\Http\Livewire\Usuarios\EditUsuario;
+use App\Http\Livewire\Usuarios\IndexUsuarios;
+use App\Http\Livewire\Usuarios\MostrarUsuario;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/Empresas', [EmpresasIndex::class, 'render']);
+        Route::get('/login',Login::class)->name('login');
 
-// Route::get('/empresas/luiscuri', [EmpresasController::class, 'create']);
-// Route::get('/alumnos/create', [AlumnoController::class, 'crear']);
+        Route::group(['middleware'=>'auth'], function () {
 
-// Route::get('/ususarios', [usuarioController::class, 'index']);
-// Route::get('/usuarios/create', [usuarioController::class, 'create']);
+        Route::get('/animales', IndexAnimales::class)->name('animales');
+        Route::get('/animales/crear', AnimalesCreate::class)->name('animales.crear');
+        Route::get('/animales/{animales}/edit', AnimalesEdit::class)->name('animales.edit');
+        Route::get('/animales/{animales}/delete', AnimalesDelete::class)->name('animales.delete');
+        Route::get('/animales/{animales}/mostrar', AnimalesMostrar::class)->name('animales.mostrar');
 
-//Route::get('/productos', IndexProductos::class)->name('productos');
-//Route::get('/productos/crear', CreateProducto::class)->name('productos.crear');
-
-Route::get('/empleados', IndexEmpleados::class)->name('empleados');
-Route::get('/empleados/crear', CreateEmpleado::class)->name('empleados.crear');
-Route::get('/empleados/{empleados}/edit', EmpleadosEdit::class)->name('empleados.edit');
-Route::get('/empleados/{empleados}/delete', EmpleadosDelete::class)->name('empleados.delete');
-Route::get('/empleados/{empleados}/mostrar', EmpleadosMostrar::class)->name('empleados.mostrar');
+        Route::get('/usuarios', IndexUsuarios::class)->name('usuarios');
+    /*  Route::get('/usuarios/crear', CreateUsuario::class)->name('usuarios.crear');
+        Route::get('/usuarios/{usuarios}/mostrar', EditUsuario::class)->name('usuarios.edit');
+        Route::get('/usuarios/{usuarios}/delete', DeleteUsuario::class)->name('usuarios.delete');
+        Route::get('/usuarios/{usuarios}/delete', MostrarUsuario::class)->name('usuarios.mostrar');*/
+});
